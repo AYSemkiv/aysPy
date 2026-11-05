@@ -1,0 +1,25 @@
+The AYS License
+Copyright © 2026 Nova (AYS)
+Permission to use, modify, and redistribute the Software is granted subject 
+to the following conditions:
+
+1. Modified Software: Any modified version of the Software must clearly 
+display the following notice whenever it is executed:
+
+"Powered by aysPy - https://github.com/AYSemkiv/aysPy/"
+
+2. Original Authorship: No person may claim the original Software as 
+their own work or represent themselves as its original creator. 
+Modified versions may be identified as forks of aysPy, provided that the
+original source is clearly attributed by including the following link:
+
+"https://github.com/AYSemkiv/aysPy/"
+
+3. Redistributed Copies: Any unmodified copy of aysPy that is redistributed 
+must clearly display the following link whenever it is executed:
+
+"https://github.com/AYSemkiv/aysPy/"
+
+4. Commercial Restrictions: No person may charge a fee for, sell, or otherwise 
+commercially distribute aysPy, whether independently or bundled with other 
+software. This restriction also applies to modified and redistributed versions of aysPy.
