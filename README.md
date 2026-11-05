@@ -1,2 +1,2 @@
 # Where to read the documentation
-Read documentation at [https://deepwiki.com/aysemkiv/aysPy/](DeepWiki)
+Read documentation at [DeepWiki](https://deepwiki.com/aysemkiv/aysPy/)
