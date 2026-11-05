@@ -26,5 +26,5 @@ jobs:
     - name: Run PyInstaller Builder
       uses: bytedeveloping/Multi-OS_PyInstaller_Build@v1
       with:
-        file_path: 'ays.py'
+        file_path: 'src/ays.py'
         upload_destination: 'actions-artifact'
