@@ -24,7 +24,7 @@ jobs:
         fetch-depth: 0
 
     - name: Run PyInstaller Builder
-      uses: bytedeveloping/Multi-OS_PyInstaller_Build@v1
+      uses: AYSemkiv/Cross-Platform-Python-Builder@v1
       with:
         file_path: 'src/ays.py'
         upload_destination: 'actions-artifact'
