@@ -28,3 +28,4 @@ jobs:
       with:
         file_path: 'src/ays.py'
         upload_destination: 'actions-artifact'
+        repo_folder_path: 
