@@ -27,5 +27,6 @@ jobs:
       uses: AYSemkiv/Cross-Platform-Python-Builder@v4.0.3
       with:
         folder_path: 'src/'
+        main_file_path: 'src/ays.py'
         upload_destination: 'commit-to-repo-folder'
         repo_folder_path: "bin/"
