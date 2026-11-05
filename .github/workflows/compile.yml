@@ -24,7 +24,7 @@ jobs:
         fetch-depth: 0
 
     - name: Run PyInstaller Builder
-      uses: AYSemkiv/Cross-Platform-Python-Builder@v4.0.3
+      uses: AYSemkiv/Cross-Platform-Python-Builder@v4.1
       with:
         folder_path: 'src/'
         main_file_path: 'src/ays.py'
