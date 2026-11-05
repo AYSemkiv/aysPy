@@ -24,8 +24,8 @@ jobs:
         fetch-depth: 0
 
     - name: Run PyInstaller Builder
-      uses: AYSemkiv/Cross-Platform-Python-Builder@v2
+      uses: AYSemkiv/Cross-Platform-Python-Builder@v3
       with:
         file_path: 'src/ays.py'
-        upload_destination: 'actions-artifact'
-        repo_folder_path: 
+        upload_destination: 'commit-to-repo-folder'
+        repo_folder_path: "bin/"
