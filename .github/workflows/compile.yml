@@ -1,0 +1,30 @@
+name: Build Executables
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  compile:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+
+    permissions:
+      contents: write # Required for commit-to-repo-folder
+
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Run PyInstaller Builder
+      uses: bytedeveloping/Multi-OS_PyInstaller_Build@v1
+      with:
+        file_path: 'main.py'
+        upload_destination: 'actions-artifact'
