@@ -71,6 +71,7 @@ def main():
   print("")
 
   if name == "exit":
+    t.clear()
     sys.exit()
 
   elif name == "reload":

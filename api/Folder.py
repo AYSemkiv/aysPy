@@ -1,7 +1,10 @@
 import os, shutil
 from tkinter import filedialog
 from tkinter_unblur import Tk
-from . import Path
+if __name__ == "__main__":
+    import Path
+else:
+    from . import Path
 
 def protected(path):
 
