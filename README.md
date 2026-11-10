@@ -4,7 +4,7 @@ Or, simply open any folder for documentation about that folder.
 
 # Installation
 To install aysPy, use the following:
-``` Bash
+``` bash
 pip install tkinter_unblur pywebview
 git clone https://github.com/AYSemkiv/aysPy.git
 cd aysPy
