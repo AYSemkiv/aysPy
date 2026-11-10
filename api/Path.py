@@ -14,13 +14,10 @@ def parent(path):
 
     if path == sep:
         return sep
-    else:
-        path = os.path.dirname(path.rstrip(sep))
-    if path == "":
+    elif path == "":
         path = sep
+        path = os.path.dirname(path.rstrip(sep))
     return path
-
-file_dir = parent(os.path.dirname(os.path.abspath(__file__)))
 
 def join(path, name):
 
@@ -40,5 +37,6 @@ def name(path):
 
 def convert(path):
 
+    file_dir = parent(parent(__file__))
     normalize(path)
     return f"{file_dir}{sep}{path}"

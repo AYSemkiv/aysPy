@@ -5,8 +5,7 @@ from . import Path
 
 def read(path):
 
-    path = Path.convert(path)
-    with open(path, "r") as file:
+    with open(Path.convert(path), "r") as file:
         content = file.read()
     return content
 
@@ -26,12 +25,10 @@ def get_file(types):
 
 def create(path, content):
 
-    path = Path.convert(path)
-
     if protected(path):
         print("error: the app tried to override a critical file. this is not allowed.")
     else:
-        with open(path, "w") as file:
+        with open(Path.convert(path), "w") as file:
             file.write(content)
 
 def delete(path):
@@ -39,47 +36,36 @@ def delete(path):
     if protected(path):
         print("error: the app tried to delete a critical file. this is not allowed.")
     else:
-        path = Path.convert(path)
-        os.remove(path)
+        os.remove(Path.convert(path))
 
 def move(path, new_path):
-
-    path = Path.convert(path)
-    new_path = Path.convert(new_path)
 
     if protected(path):
         print("error: the app tried to move a critical file. this is not allowed.")
     else:
-        shutil.move(path, new_path)
+        shutil.move(Path.convert(path), Path.convert(new_path))
 
 def copy(path, new_path):
 
-    path = Path.convert(path)
-    new_path = Path.convert(new_path)
-
-    shutil.copy(path, new_path)
+    shutil.copy(Path.convert(path), Path.convert(new_path))
 
 def exists(path):
-
-    path = Path.convert(path)
-    return os.path.isfile(path)
+ 
+    return os.path.isfile(Path.convert(path))
 
 def rename(path, new_name):
 
-    path = Path.convert(path)
     new_path = Path.join(Path.parent(path), new_name)
 
     if protected(path):
         print("error: the app tried to rename a critical file. this is not allowed.")
     else:
-        os.rename(path, new_path)
+        os.rename(Path.convert(path), new_path)
 
 def size(path):
 
-    path = Path.convert(path)
-    return os.path.getsize(path)
+    return os.path.getsize(Path.convert(path))
 
 def extension(path):
 
-    path = Path.convert(path)
-    return os.path.splitext(path)[1]
+    return os.path.splitext(Path.convert(path))[1]
