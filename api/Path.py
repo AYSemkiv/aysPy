@@ -1,5 +1,4 @@
 import os
-
 sep = os.sep
 
 def normalize(path):
@@ -43,7 +42,3 @@ def convert(path):
 
     normalize(path)
     return f"{file_dir}{sep}{path}"
-
-if __name__ == "__main__":
-    print("this is the aysAPI.")
-    print("it is not meant to be run directly.")
