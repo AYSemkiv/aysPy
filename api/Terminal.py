@@ -1,8 +1,11 @@
 import os
 
 def clear():
-    
-    os.system("cls")
+
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
 
 def write(text):
 
