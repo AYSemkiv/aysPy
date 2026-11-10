@@ -1,2 +1,2 @@
 # Where to read
-Read the documentation at [DeepWiki](https://deepwiki.com/aysemkiv/aysPy/)
+For an up-to-date, comprehensive documentation that you can question, visit the [DeepWiki link](https://deepwiki.com/aysemkiv/aysPy/)
