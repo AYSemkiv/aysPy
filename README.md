@@ -18,3 +18,7 @@ Either make a pull request that explains what you changed, or make a new issue.
 Contact me at sepia-pry-immodest@duck.com  
 Note: this is a disposable email; if I get spammed, I can and will delete it.  
 You might not be able to contact me with it.
+
+# Note
+THIS IS NOT AI-GENERATED  
+IF YOU THINK IT IS I DON'T KNOW WHY
