@@ -17,10 +17,10 @@ def ask(text):
 
 def confirm(text):
 
-    text = input(f"Y/N: {text} ")
-    if text.lower() == "y":
+    text = ask(f"Y/N: {text}")
+    if text == "y":
         return True
-    elif text.lower() == "n":
+    elif text == "n":
         return False
     else:
         return None
@@ -28,3 +28,27 @@ def confirm(text):
 def error(text):
 
     print(f"error: {text}")
+
+def split(text):
+    args = []
+    current = ""
+    quoted = False
+
+    for char in text:
+        if char == '"':
+            quoted = not quoted
+        elif char == " " and not quoted:
+            if current:
+                args.append(current)
+                current = ""
+            else:
+                current += char
+
+    if quoted:
+        error("unclosed quotation marks")
+        return None
+
+    if current:
+        args.append(current)
+
+    return args

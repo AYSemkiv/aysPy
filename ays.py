@@ -19,40 +19,6 @@ default_data = {
 print("""aysPy
 type 'help' for available commands.""")
 
-
-def parse_args(command):
-  args = []
-  current = ""
-  quoted = False
-
-  for char in command:
-    if char == '"':
-      quoted = not quoted
-    elif char == " " and not quoted:
-      if current:
-        args.append(current)
-        current = ""
-    else:
-      current += char
-
-  if quoted:
-    t.error("unclosed quotation marks")
-    return "֍"
-
-  if current:
-    args.append(current)
-
-  return args
-
-def parse_data(metadata):
-    result = {}
-
-    for item in metadata.split(","):
-        key, value = item.split(":")
-        result[key] = value == "1"
-
-    return result
-
 def merge(default_data, metadata):
     merged = default_data.copy()
     merged.update(metadata)
@@ -63,7 +29,7 @@ def main():
 
   comd = t.ask(f"{work_dir}>")
 
-  com_list = parse_args(comd)
+  com_list = t.split(comd)
   
   if com_list == []:
     com_list = [""]
@@ -93,7 +59,7 @@ def main():
     if len(com_list) == 1:
       print("usage: 'cf ..' OR 'cf folder'")
     elif com_list[1] == "..":
-      work_dir = p.parent(work_dir)
+      work_dir = p.up(work_dir)
     else:
       new_dir = p.join(work_dir, com_list[1])
       if fol.exists(new_dir):
@@ -133,7 +99,7 @@ def main():
 
       if fi.exists(metadata_file):
           tmp = fi.read(metadata_file)
-          metadata = parse_data(tmp)
+          metadata = t.split(tmp)
 
       tmp_list = com_list[1:]
       merged_data = merge(default_data, metadata)
@@ -153,7 +119,7 @@ def main():
       print(f"error: '{comd2}' is not a valid app.")
 
   else:
-    if not com_list == ["֍"]:
+    if not com_list == [None]:
       print("unknown command.")
 
 def assemble_data(metadata, tmp_list):

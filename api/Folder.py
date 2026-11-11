@@ -1,6 +1,5 @@
 import os, shutil
 from tkinter import filedialog
-from tkinter_unblur import Tk
 if __name__ == "__main__":
     import Path
 else:
@@ -8,9 +7,9 @@ else:
 
 def protected(path):
 
-    return path == "apps"
+    return path == "apps" or path == "api" or path == f"apps{Path.sep}" or path == f"api{Path.sep}"
     
-def get_file():
+def get_folder():
 
     path = filedialog.askdirectory()
     return Path.normalize(path)
@@ -31,7 +30,7 @@ def move(path, new_path):
     if protected(path):
         print("error: the app tried to move a critical folder. this is not allowed.")
     else:
-        shutil.move(Path.convert(path), Path.convert(path))
+        shutil.move(Path.convert(path), Path.convert(new_path))
 
 def copy(path, new_path):
 

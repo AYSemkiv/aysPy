@@ -8,7 +8,7 @@ def normalize(path):
     else:
         return path.replace("\\", "/")
 
-def parent(path):
+def up(path):
 
     path = normalize(path)
 
@@ -37,6 +37,6 @@ def name(path):
 
 def convert(path):
 
-    file_dir = parent(parent(__file__))
+    file_dir = up(up(__file__))
     normalize(path)
     return f"{file_dir}{sep}{path}"

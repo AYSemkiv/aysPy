@@ -1,6 +1,5 @@
 import os, shutil
 from tkinter import filedialog
-from tkinter_unblur import Tk
 if __name__ == "__main__":
     import Path
 else:
@@ -14,7 +13,7 @@ def read(path):
 
 def protected(path):
 
-    return path == "ays.py" or path == "api.py"
+    return path == "ays.py" or path == f"ays.py{Path.sep}"
 
 def get_file(types):
 
