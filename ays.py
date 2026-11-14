@@ -24,6 +24,32 @@ def merge(default_data, metadata):
     merged.update(metadata)
     return merged    
 
+def assemble_data(metadata, tmp_list):
+
+  global file_dir
+  global work_dir
+
+  data = {}
+  default_data = {
+    "args": tmp_list,
+    "file_dir": file_dir,
+    "work_dir": work_dir
+  }
+
+  for key in default_data:
+    if key in metadata and metadata[key] == True:
+      data[key] = default_data[key]
+  return data
+
+def parse_data(metadata):
+    result = {}
+
+    for item in metadata.split(","):
+        key, value = item.split(":")
+        result[key] = value == "1"
+
+    return result
+
 def main():
   global work_dir
 
@@ -99,7 +125,7 @@ def main():
 
       if fi.exists(metadata_file):
           tmp = fi.read(metadata_file)
-          metadata = t.split(tmp)
+          metadata = parse_data(tmp)
 
       tmp_list = com_list[1:]
       merged_data = merge(default_data, metadata)
@@ -107,11 +133,11 @@ def main():
 
       def this_bs_long(merged_data):
         return any(value is True for value in merged_data.values())
-      
-      if this_bs_long(merged_data):
-        app.main(assembled_data)
-      elif merged_data["args"] and len(tmp_list) == 0:
+
+      if merged_data["args"] and len(tmp_list) == 0:
         app.usage()
+      elif this_bs_long(merged_data):
+        app.main(assembled_data)
       else:
         app.main()
 
@@ -121,23 +147,6 @@ def main():
   else:
     if not com_list == [None]:
       print("unknown command.")
-
-def assemble_data(metadata, tmp_list):
-
-  global file_dir
-  global work_dir
-
-  data = {}
-  default_data = {
-    "args": tmp_list,
-    "file_dir": file_dir,
-    "work_dir": work_dir
-  }
-
-  for key in default_data:
-    if key in metadata and metadata[key] == True:
-      data[key] = default_data[key]
-  return data
 
 if __name__ == "__main__":
   while True:

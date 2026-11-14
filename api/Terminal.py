@@ -44,6 +44,9 @@ def split(text):
             else:
                 current += char
 
+        else:
+            current += char
+
     if quoted:
         error("unclosed quotation marks")
         return None

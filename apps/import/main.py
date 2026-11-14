@@ -18,7 +18,7 @@ def main(dictionary):
                     relative_path = name.removeprefix("aysPy/")
                     target_path = os.path.join(install_location, relative_path)
 
-                if name.endswith("/"):
+                if name.endswith({api.Path.sep}):
                     os.makedirs(target_path, exist_ok=True)
                 else:
                     os.makedirs(os.path.dirname(target_path), exist_ok=True)

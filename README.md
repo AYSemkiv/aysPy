@@ -1,6 +1,6 @@
 # Where to read
 For an up-to-date, comprehensive documentation that you can question, visit the [DeepWiki link](https://deepwiki.com/aysemkiv/aysPy/)  
-Or, simply open any folder for documentation about that folder.
+Or, simply open any folder for the specific documentation about that folder. I like to call that documentation "enhanced documentation".
 
 # Installation
 To install aysPy, use the following:

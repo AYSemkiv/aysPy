@@ -12,11 +12,13 @@ def up(path):
 
     path = normalize(path)
 
+    idx = path.rfind(sep)
+    path = path[:idx]
     if path == sep:
-        return sep
+        path = sep
     elif path == "":
         path = sep
-        path = os.path.dirname(path.rstrip(sep))
+
     return path
 
 def join(path, name):

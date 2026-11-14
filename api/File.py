@@ -57,7 +57,7 @@ def exists(path):
 
 def rename(path, new_name):
 
-    new_path = Path.join(Path.parent(path), new_name)
+    new_path = Path.join(Path.up(path), new_name)
 
     if protected(path):
         print("error: the app tried to rename a critical file. this is not allowed.")
