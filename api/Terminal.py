@@ -29,6 +29,10 @@ def error(text):
 
     print(f"error: {text}")
 
+def warning(text):
+
+    print(f"warning: {text}")
+
 def split(text):
     args = []
     current = ""

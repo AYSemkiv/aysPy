@@ -7,13 +7,13 @@ from api import Terminal as t, Path as p, Folder as fol, File as fi
 t.clear()
 sep = os.sep
 
-work_dir = sep
-file_dir = os.path.dirname(os.path.abspath(__file__))
+work_fol = sep
+file_fol = os.path.dirname(os.path.abspath(__file__))
 
 default_data = {
   "args": True,
-  "file_dir": False,
-  "work_dir": False
+  "file_fol": False,
+  "work_fol": False
 }
 
 print("""aysPy
@@ -26,14 +26,14 @@ def merge(default_data, metadata):
 
 def assemble_data(metadata, tmp_list):
 
-  global file_dir
-  global work_dir
+  global file_fol
+  global work_fol
 
   data = {}
   default_data = {
     "args": tmp_list,
-    "file_dir": file_dir,
-    "work_dir": work_dir
+    "file_fol": file_fol,
+    "work_fol": work_fol
   }
 
   for key in default_data:
@@ -44,6 +44,10 @@ def assemble_data(metadata, tmp_list):
 def parse_data(metadata):
     result = {}
 
+    if not metadata:
+      t.warning("the metadata file of this app is likely empty")
+      return
+
     for item in metadata.split(","):
         key, value = item.split(":")
         result[key] = value == "1"
@@ -51,9 +55,9 @@ def parse_data(metadata):
     return result
 
 def main():
-  global work_dir
+  global work_fol
 
-  comd = t.ask(f"{work_dir}>")
+  comd = t.ask(f"{work_fol}>")
 
   com_list = t.split(comd)
   
@@ -85,17 +89,17 @@ def main():
     if len(com_list) == 1:
       print("usage: 'cf ..' OR 'cf folder'")
     elif com_list[1] == "..":
-      work_dir = p.up(work_dir)
+      work_fol = p.up(work_fol)
     else:
-      new_dir = p.join(work_dir, com_list[1])
+      new_dir = p.join(work_fol, com_list[1])
       if fol.exists(new_dir):
-        work_dir = new_dir
+        work_fol = new_dir
 
   elif name == "ls":
-    tmp = fol.list(work_dir)
+    tmp = fol.list(work_fol)
     print("[FOL] means folder, [FIL] means file \n")
     for i, item in enumerate(tmp):
-      temp = p.join(work_dir, item)
+      temp = p.join(work_fol, item)
       if fi.exists(temp):
         tmp[i] = f"[FIL] {item}"
       elif fol.exists(temp):

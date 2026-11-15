@@ -5,7 +5,7 @@ def main(dictionary):
     import os
     import zipfile
 
-    install_location = f"{dictionary["file_dir"]}\\apps"
+    install_location = f"{dictionary["file_fol"]}\\apps"
 
     file_path = api.File.get_file({"aysBundles":"ays"})
 

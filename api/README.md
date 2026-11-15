@@ -146,6 +146,11 @@ If the user doesn't say it, it returns `None`.
 Errors out.  
 It would do:
 `error: [your_error]`
+
+## warning(text)
+Similar to error(text), but instead does:  
+`warning: [your_warning]`  
+
 ## split(text)
 Insanely useful.  
 It splits text you input by spaces, and also supports quotes.  

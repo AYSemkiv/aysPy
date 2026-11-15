@@ -4,19 +4,19 @@ def main(dictionary):
     sys.path.append("../..")
     from api import File as fi, Folder as fol, Terminal as t, Path as p
 
-    work_dir = dictionary["work_dir"]
+    work_fol = dictionary["work_fol"]
     app_fil = dictionary["args"]
     
     if isinstance(app_fil, str):
         app_fil = json.loads(app_fil)
     app_fil = app_fil[0]
-    if not fol.exists(work_dir):
+    if not fol.exists(work_fol):
         t.error("working folder is nonexistent. this is a bug, if you're running it in aysPy.")
         return
     if not fi.exists(app_fil):
         t.error("file doesn't exist.")
         return
-    directory = p.join(work_dir, app_fil)
+    directory = p.join(work_fol, app_fil)
     print(fi.read(directory))
 
 def usage():
