@@ -15,15 +15,31 @@ def protected(path):
 
     return path == "ays.py" or path == f"ays.py{Path.sep}"
 
-def get_file(types):
+class Dialog():
 
-    for key in types:
-        types[key] = f"*.{types[key]}"
-        
-    filetypes = list(types.items())
-    path = filedialog.askopenfilename(filetypes=filetypes)
-    path = Path.normalize(path)
-    return path
+    def helper(types):
+        for key in types:
+            types[key] = f"*.{types[key]}"
+        filetypes = list(types.items())
+        return filetypes
+
+    def get_file_type(types):
+        filetypes = Dialog.helper(types)
+        path = filedialog.askopenfilename(filetypes=filetypes)
+        path = Path.normalize(path)
+        return path
+
+    def get_files_types(types):
+        filetypes = Dialog.helper(types)
+        path = filedialog.askopenfilenames(filetypes=filetypes)
+        path = Path.normalize(path)
+        return path
+
+    def save_as_type(types):
+        filetypes = Dialog.helper(types)
+        path = filedialog.asksaveasfilename
+        path = Path.normalize(path)
+        return path
 
 def create(path, content):
 
