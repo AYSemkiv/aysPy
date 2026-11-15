@@ -155,17 +155,3 @@ Similar to error(text), but instead does:
 Insanely useful.  
 It splits text you input by spaces, and also supports quotes.  
 If it errors, it returns `None`
-
-# Window
-The purpose of the window sub-API is to let you create web-apps.  
-To use any of these API functions, write `api.Window.` at the beginning of the function name.  
-If there's no description, that means that the function name itself is descriptive.  
-This API is very early-testers.
-Here are all of the up-to-date operations:
-
-## open(name, path)
-Open a window from a path. `name` means the title you want for the window.
-
-## list()
-List the window objects that are currently open.
-## close(id)
