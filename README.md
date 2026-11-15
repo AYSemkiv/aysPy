@@ -5,7 +5,6 @@ Or, simply open any folder for the specific documentation about that folder. I l
 # Installation
 To install aysPy, use the following:
 ``` bash
-pip install pywebview
 git clone https://github.com/AYSemkiv/aysPy.git
 cd aysPy
 python ays.py
