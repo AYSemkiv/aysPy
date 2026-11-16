@@ -59,3 +59,16 @@ def split(text):
         args.append(current)
 
     return args
+
+def make_help(definitions, title):
+
+    text = f"{title}\n\n"
+    keys = list(definitions)
+    length = len(keys)
+
+    for i in range(length):
+        comd = keys[i]
+        defn = definitions[comd]
+        text = f"{text}{comd}: {defn}\n"
+
+    return text

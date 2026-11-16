@@ -155,3 +155,10 @@ Similar to error(text), but instead does:
 Insanely useful.  
 It splits text you input by spaces, and also supports quotes.  
 If it errors, it returns `None`
+
+## make_help(definitions, title)
+Lets you dynamically generate a help page,  
+and lets you choose a title and the words.  
+definitions should be like:  
+``` python
+definitions = {}

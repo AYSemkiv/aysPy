@@ -21,6 +21,8 @@ def up(path):
 
     return path
 
+file_fol = up(up(__file__))
+
 def join(path, name):
 
     path = normalize(path)
@@ -39,6 +41,5 @@ def name(path):
 
 def convert(path):
 
-    file_dir = up(up(__file__))
     normalize(path)
-    return f"{file_dir}{sep}{path}"
+    return f"{file_fol}{sep}{path}"
