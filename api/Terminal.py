@@ -60,8 +60,9 @@ def split(text):
 
     return args
 
-def make_help(definitions, title):
+def make_table(definitions, title):
 
+    
     text = f"{title}\n\n"
     keys = list(definitions)
     length = len(keys)
@@ -69,7 +70,10 @@ def make_help(definitions, title):
     for i in range(length):
         comd = keys[i]
         defn = definitions[comd]
-        text = f"{text}{comd}: {defn}\n"
+        if defn == None:
+            text = f"{text}{comd}\n"
+        else:
+            text = f"{text}{comd}: {defn}\n"
 
     return text
 

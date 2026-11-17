@@ -3,15 +3,26 @@ sys.path.append("../..")
 from api import Terminal as t, Path as p, File as fi, Folder as fol
 sep = p.sep
 
+apps = []
+def app_list():
+    global apps
+    apps = fol.list(f"{sep}apps")
+    for i, item in enumerate(apps):
+        if fi.exists(item):
+            apps.pop(i)
+
 t.clear()
 help_list = {
     "help": "the command you're in",
     "info": "list the documentation of an app",
-    "ls": "list all of the apps in aysPy"
+    "ls": "list all of the apps in aysPy",
+    "refresh": "refresh the apps list",
+    "search": "search apps"
 }
 help_text = t.make_help(help_list, "available commands:")
 
 def main():
+    app_list()
     print('type "help" for available commands.')
     while True:
         status = loop()
@@ -36,14 +47,25 @@ def loop():
 
     if comd_name == "ls":
 
-        apps = fol.list(f"{sep}apps")
         print("apps: \n")
-        for i, item in enumerate(apps):
-            if fi.exists(item):
-                apps.pop(i)
-
         print("\n".join(apps))
         print()
+
+    if comd_name == "refresh":
+
+        app_list()
+
+    if comd_name == "search":
+
+        if len(comds) == 1:
+            print("usage: search [app_name]")
+        else:
+            matches = []
+            keyword = comds[1]
+            for i, item in enumerate(apps):
+                if keyword in item:
+                    matches.append(item)
+            print(matches)
 
     if comd_name == "info":
 

@@ -156,7 +156,7 @@ Insanely useful.
 It splits text you input by spaces, and also supports quotes.  
 If it errors, it returns `None`
 
-## make_help(definitions, title)
+## make_table(definitions, title)
 Lets you dynamically generate a help page,  
 and lets you choose a title and the words.  
 Definitions should be like:  
@@ -164,7 +164,9 @@ Definitions should be like:
 definitions = {
     "command_name": "command_definition"
 }
-```
+```  
+You can also set "None" as the value, if you don't need any.  
+Or, just use a list.
 
 ## color(R, G, B)
 
