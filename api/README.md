@@ -112,8 +112,8 @@ Does basic normalization. If your OS separator is `\`, it converts `/` to `\` in
 ## up(path)
 Go up a folder.
 
-## join(path, name)
-Join 2 paths together.
+## join(*items)
+Joins several paths together.
 
 ## name(path)
 Get the name of folder/file from a path.
@@ -159,6 +159,25 @@ If it errors, it returns `None`
 ## make_help(definitions, title)
 Lets you dynamically generate a help page,  
 and lets you choose a title and the words.  
-definitions should be like:  
+Definitions should be like:  
 ``` python
-definitions = {}
+definitions = {
+    "command_name": "command_definition"
+}
+```
+
+## color(R, G, B)
+
+Returns an ANSI sequence to color text.  
+If you want to color some text, put this string **before**  
+the text you want to color. 
+If you want bold and underline, sadly you have to research  
+yourself, because I don't know how to implement it.
+If you want to mark the end  
+of the color, use `clear_color()`
+
+## clear_color()
+
+Returns the ANSI sequence to clear the color  
+and to clear all formatting like bold, or underline.  
+to the original. Put this string **after** your colored text.

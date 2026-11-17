@@ -120,7 +120,7 @@ def main():
     comd1 = name.rfind(".app")
     comd2 = name[:comd1]
 
-    app_dir = p.join(f"{sep}apps", comd2)
+    app_dir = p.join(f"apps", comd2)
 
     if fol.exists(app_dir):
       app = importlib.import_module(f"apps.{comd2}.main")

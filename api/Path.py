@@ -23,16 +23,14 @@ def up(path):
 
 file_fol = up(up(__file__))
 
-def join(path, name):
+def join(*items):
 
-    path = normalize(path)
-    name = normalize(name)
+    path = ""
+    for i, item in enumerate(items):
 
-    if path.endswith(sep):
-        return f"{path}{name}"
-    else:
-        return f"{path}{sep}{name}"
+        path = f"{path}{sep}{item}"
 
+    return path
 def name(path):
 
     normalize(path)

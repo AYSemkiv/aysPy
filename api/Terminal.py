@@ -72,3 +72,11 @@ def make_help(definitions, title):
         text = f"{text}{comd}: {defn}\n"
 
     return text
+
+def color(R, G, B):
+
+    return f"\033[38;2;{R};{G};{B}m"
+
+def clear_color():
+
+    return "\033[0m"

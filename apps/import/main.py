@@ -2,7 +2,6 @@ def main(dictionary):
     import sys
     sys.path.append("../..")
     import api
-    import os
     import zipfile
 
     install_location = f"{dictionary["file_fol"]}\\apps"
@@ -16,12 +15,13 @@ def main(dictionary):
             for name in archive.namelist():
                 if name.startswith("aysPy/"):
                     relative_path = name.removeprefix("aysPy/")
-                    target_path = os.path.join(install_location, relative_path)
+                    target_path = api.Path.join(install_location, relative_path)
 
                 if name.endswith({api.Path.sep}):
-                    os.makedirs(target_path, exist_ok=True)
+                    api.Folder.create(relative_path)
+
                 else:
-                    os.makedirs(os.path.dirname(target_path), exist_ok=True)
+                    api.Folder.create(api.Path.name(relative_path))
                     with archive.open(name) as source, open(target_path, "wb") as target:
                         target.write(source.read())
 
