@@ -62,7 +62,9 @@ def split(text):
 
 def make_table(definitions, title):
 
-    
+    if isinstance(definitions, list):
+        definitions = dict.fromkeys(definitions, None)
+
     text = f"{title}\n\n"
     keys = list(definitions)
     length = len(keys)

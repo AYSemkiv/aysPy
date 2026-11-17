@@ -19,7 +19,7 @@ help_list = {
     "refresh": "refresh the apps list",
     "search": "search apps"
 }
-help_text = t.make_help(help_list, "available commands:")
+help_text = t.make_tables(help_list, "available commands:")
 
 def main():
     app_list()
@@ -65,7 +65,8 @@ def loop():
             for i, item in enumerate(apps):
                 if keyword in item:
                     matches.append(item)
-            print(matches)
+            table = t.make_table(matches, "found matches:")
+            print(table)
 
     if comd_name == "info":
 
