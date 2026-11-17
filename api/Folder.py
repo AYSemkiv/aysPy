@@ -49,10 +49,38 @@ def rename(path, new_name):
     else:
         os.rename(Path.convert(path), new_path)
 
-def list(path):
+def list_items(path, fil_fol=None):
 
-    return os.listdir(Path.convert(path))
+    folders = os.listdir(Path.convert(path))
+    if fil_fol == None:
+        fol = None
+    else:
+        fil_fol = fil_fol.lower().strip()
+
+        if fil_fol == "fil":
+            fol = True
+        elif fil_fol == "fol":
+            fol = False
+        elif fil_fol == None:
+            fol = None
+
+    final_list = folders.copy()
+
+    if fol:
+        for i, item in reversed(list(enumerate(folders))):
+            if os.path.isfile(Path.convert(item)):
+                final_list.pop(i)
+    elif not fol:
+        for i, item in reversed(list(enumerate(folders))):
+            if exists(item):
+                final_list.pop(i)
+    elif fol == None:
+        pass
+
+    return final_list
 
 def is_empty(path):
 
     return not os.listdir(Path.convert(path))
+
+print(list_items("\\", "fil"))

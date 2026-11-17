@@ -97,7 +97,7 @@ def main():
         work_fol = new_dir
 
   elif name == "ls":
-    tmp = fol.list(work_fol)
+    tmp = fol.list_items(work_fol)
     print("[FOL] means folder, [FIL] means file \n")
     for i, item in enumerate(tmp):
       temp = p.join(work_fol, item)

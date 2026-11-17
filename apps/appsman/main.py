@@ -6,7 +6,7 @@ sep = p.sep
 apps = []
 def app_list():
     global apps
-    apps = fol.list(f"{sep}apps")
+    apps = fol.list_items(f"{sep}apps")
     for i, item in enumerate(apps):
         if fi.exists(item):
             apps.pop(i)
