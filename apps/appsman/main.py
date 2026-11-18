@@ -11,7 +11,6 @@ def app_list():
         if fi.exists(item):
             apps.pop(i)
 
-t.clear()
 help_list = {
     "help": "the command you're in",
     "info": "list the documentation of an app",
@@ -19,7 +18,7 @@ help_list = {
     "refresh": "refresh the apps list",
     "search": "search apps"
 }
-help_text = t.make_tables(help_list, "available commands:")
+help_text = t.make_table(help_list, "available commands:", True)
 
 def main():
     app_list()
@@ -88,4 +87,3 @@ if __name__ == "__main__":
     print("DEVELOPER MODE ACTIVE")
     print("appsman")
     main()
-    t.clear()

@@ -8,16 +8,16 @@ work_fol = sep
 file_fol = p.file_fol
 
 commands = {
-  "help:": "the command you're in",
-  "cf:": "change the folder you're in",
-  "cf ..:": "go a folder up",
-  "ls:": "list the folder contents",
-  "reload:": "reload aysPy",
-  "exit:": "exit aysPy",
-  "cts:": "clear the screen",
-  "app_name.app:": "open an app"
+  "help": "the command you're in",
+  "cf": "change the folder you're in",
+  "cf ..": "go a folder up",
+  "ls": "list the folder contents",
+  "reload": "reload aysPy",
+  "exit": "exit aysPy",
+  "cts": "clear the screen",
+  "app_name.app": "open an app"
 }
-help_list = t.make_table(commands, "commands:")
+help_list = t.make_table(commands, "commands:", True)
 
 default_data = {
   "args": True,
