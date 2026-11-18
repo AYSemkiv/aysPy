@@ -145,6 +145,7 @@ def main():
         app.main(assembled_data)
       else:
         app.main()
+      t.clear_color()
 
     else:
       print(f"error: '{comd2}' is not a valid app.")
