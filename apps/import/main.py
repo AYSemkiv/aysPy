@@ -6,7 +6,7 @@ def main(dictionary):
 
     install_location = f"{dictionary["file_fol"]}\\apps"
 
-    file_path = api.File.get_file({"aysBundles":"ays"})
+    file_path = api.Folder.get_folder()
 
     if file_path == "":
         print("error: you cancelled the file selection")

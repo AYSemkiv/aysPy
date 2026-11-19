@@ -60,7 +60,7 @@ def split(text):
 
     return args
 
-def make_table(definitions, title):
+def make_table(definitions, title, add_colon=False):
 
     if isinstance(definitions, list):
         definitions = dict.fromkeys(definitions, None)
@@ -74,12 +74,15 @@ def make_table(definitions, title):
         defn = definitions[comd]
         if defn == None:
             text = f"{text}{comd}\n"
-        else:
-            text = f"{text}{comd} {defn}\n"
+        elif not defn == None and add_colon:
+            text = f"{text}{comd}: {defn}\n"
+        elif not defn == None and not add_colon:
+            text = f"{text}{comd}: {defn}\n"
+
 
     return text
 
-def color(R, G, B):
+def color(R="0", G="0", B="0"):
 
     print(f"\033[38;2;{R};{G};{B}m")
 

@@ -1,13 +1,12 @@
 # THE BASICS
 The aysAPI is an API to abstract core functions of aysPy.
-It includes 5 sub-APIs:
+It includes 4 sub-APIs:
 
 
 - File
 - Folder
 - Path
 - Terminal
-- Window (ALPHA)
 
 I consider aysPy as a buggy system. It’s definitely not the most bulletproof CLI out there.
 

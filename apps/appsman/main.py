@@ -11,15 +11,15 @@ def app_list():
         if fi.exists(item):
             apps.pop(i)
 
-t.clear()
 help_list = {
     "help": "the command you're in",
     "info": "list the documentation of an app",
     "ls": "list all of the apps in aysPy",
     "refresh": "refresh the apps list",
-    "search": "search apps"
+    "search": "search apps",
+    "exit": "exit appsman"
 }
-help_text = t.make_tables(help_list, "available commands:")
+help_text = t.make_table(help_list, "available commands:", True)
 
 def main():
     app_list()
@@ -41,21 +41,21 @@ def loop():
 
         return "exit"
 
-    if comd_name == "help":
+    elif comd_name == "help":
 
         print(help_text)
 
-    if comd_name == "ls":
+    elif comd_name == "ls":
 
         print("apps: \n")
         print("\n".join(apps))
         print()
 
-    if comd_name == "refresh":
+    elif comd_name == "refresh":
 
         app_list()
 
-    if comd_name == "search":
+    elif comd_name == "search":
 
         if len(comds) == 1:
             print("usage: search [app_name]")
@@ -68,7 +68,7 @@ def loop():
             table = t.make_table(matches, "found matches:")
             print(table)
 
-    if comd_name == "info":
+    elif comd_name == "info":
 
         if len(comds) == 1:
             print("usage: about [app_name]")
@@ -83,9 +83,11 @@ def loop():
             elif not fi.exists(file_location):
                 t.warning("app info not found")
 
+    else:
+        t.error("command not found")
+
 if __name__ == "__main__":
     
     print("DEVELOPER MODE ACTIVE")
     print("appsman")
     main()
-    t.clear()
