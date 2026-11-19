@@ -16,7 +16,8 @@ help_list = {
     "info": "list the documentation of an app",
     "ls": "list all of the apps in aysPy",
     "refresh": "refresh the apps list",
-    "search": "search apps"
+    "search": "search apps",
+    "exit": "exit appsman"
 }
 help_text = t.make_table(help_list, "available commands:", True)
 

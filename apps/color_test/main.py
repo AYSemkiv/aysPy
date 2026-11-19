@@ -3,7 +3,7 @@ sys.path.append("../..")
 from api import Terminal as t
 
 def main():
-    t.color(B="256")
+    t.color(R="50")
     print("Hello, World!")
 
 if __name__ == "__main__":
