@@ -26,11 +26,15 @@ file_fol = up(up(__file__))
 def join(*items):
 
     path = ""
+
     for i, item in enumerate(items):
 
-        path = f"{path}{sep}{item}"
+        item = normalize(item)
+        if not ".." in item:
+            path = f"{path}{sep}{item}"
 
     return path
+
 def name(path):
 
     normalize(path)
