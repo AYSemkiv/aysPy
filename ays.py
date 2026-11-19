@@ -114,6 +114,7 @@ def main():
 
   elif name == "cts":
     t.clear()
+    amount_of_times_said = 0
 
   elif name == "":
     pass
