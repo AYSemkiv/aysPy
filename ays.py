@@ -125,12 +125,13 @@ def main():
     if fol.exists(app_dir):
       app = importlib.import_module(f"apps.{comd2}.main")
 
-      metadata = {}
       metadata_file = p.join(app_dir, "metadata")
+      metadata = {}
 
       if fi.exists(metadata_file):
           tmp = fi.read(metadata_file)
-          metadata = parse_data(tmp)
+          if not tmp == "":
+            metadata = parse_data(tmp)
 
       tmp_list = com_list[1:]
       merged_data = merge(default_data, metadata)
@@ -149,6 +150,18 @@ def main():
 
     else:
       print(f"error: '{comd2}' is not a valid app.")
+
+  elif name == "fih":
+
+    print("fih: \n"
+          "  _ \n"
+          "><_>")
+
+  elif name == "ava":
+    print("Nova")
+
+  elif name == "bfdi":
+    print("Acidy")
 
   else:
     if not com_list == [None]:

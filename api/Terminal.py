@@ -82,7 +82,7 @@ def make_table(definitions, title, add_colon=False):
 
     return text
 
-def color(R, G, B):
+def color(R="0", G="0", B="0"):
 
     print(f"\033[38;2;{R};{G};{B}m")
 
