@@ -50,10 +50,13 @@ def protected(path):
     
 def get_folder():
 
-    dir = Path.sep
-    def _get_items(path):
-        return list_items(path, fil_fol="fol")
-    print(t.make_table(_get_items(dir), title="folders: ", separator=":"))
+    print("working on it")
+
+    # dir = Path.sep
+    # def _get_items(path):
+    #     return list_items(path, fil_fol="fol")
+    # print(t.make_table(_get_items(dir), title="folders: ", separator=":"))
+    pass
 
 def create(path):
 
