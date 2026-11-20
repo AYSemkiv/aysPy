@@ -17,7 +17,7 @@ commands = {
   "cts": "clear the screen",
   "app_name.app": "open an app"
 }
-help_list = t.make_table(commands, "commands:", True)
+help_list = t.make_table(commands, "commands:", ":")
 
 default_data = {
   "args": True,

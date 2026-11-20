@@ -5,6 +5,13 @@ if __name__ == "__main__":
 else:
     from . import Path, Terminal as t
 
+commands_folpicker_tmp = {
+    "a_number": "the id of your file/folder",
+    "up": "go up a folder",
+    "go a_number": "go into that folder"
+}
+commands_folpicker = t.make_table(commands_folpicker_tmp, "commands:", ":")
+
 def list_items(path, fil_fol=None):
 
     folders = os.listdir(Path.convert(path))
@@ -41,8 +48,10 @@ def protected(path):
     
 def get_folder():
 
-    path = filedialog.askdirectory()
-    return Path.normalize(path)
+    dir = Path.sep
+    def _get_items(path):
+        return list_items(path, fil_fol="fol")
+    print(t.make_table(_get_items(dir)))
 
 def create(path):
 

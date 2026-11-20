@@ -47,25 +47,24 @@ def split(text):
                 current = ""
             else:
                 current += char
-
         else:
             current += char
 
     if quoted:
         error("unclosed quotation marks")
         return None
-
     if current:
         args.append(current)
-
     return args
 
-def make_table(definitions, title, add_colon=False):
+def make_table(definitions, title=None, separator=""):
 
     if isinstance(definitions, list):
         definitions = dict.fromkeys(definitions, None)
 
-    text = f"{title}\n\n"
+    text = ""
+    if not title == None:
+        text = f"{title}\n\n"
     keys = list(definitions)
     length = len(keys)
 
@@ -74,11 +73,8 @@ def make_table(definitions, title, add_colon=False):
         defn = definitions[comd]
         if defn == None:
             text = f"{text}{comd}\n"
-        elif not defn == None and add_colon:
-            text = f"{text}{comd}: {defn}\n"
-        elif not defn == None and not add_colon:
-            text = f"{text}{comd}: {defn}\n"
-
+        elif not defn == None:
+            text = f"{text}{comd}{separator} {defn}\n"
 
     return text
 

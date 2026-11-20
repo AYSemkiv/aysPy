@@ -94,8 +94,10 @@ No, this won't get updated to have a range of folders, as apparently the library
 Checks whether that folder exists.
 ## rename(path, new_name)
 
-## list(path)
-Lists the items (files or folders) in a folder
+## list_items(path, fil_fol=None)
+Lists the items (files or folders) in a folder.  
+Do `fil_fol="fol"` if you want folders only,  
+and `fil_fol="fil"` if you want files only.
 
 ## is_empty(path)
 
