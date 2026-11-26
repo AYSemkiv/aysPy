@@ -1,1 +1,1 @@
-from . import File, Folder, Path, Terminal
+from . import File, Folder, Path, Terminal, Manipulate
